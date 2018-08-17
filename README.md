@@ -4,6 +4,8 @@
 
 This project is a small Xamarin.Forms backend of gui.cs. Yes, create **console** Apps with C# and XAML!.
 
+![](images/forms-gui-dialogs.gif)
+
 ## Copyright and license
 
 Code released under the [MIT license](https://opensource.org/licenses/MIT).
