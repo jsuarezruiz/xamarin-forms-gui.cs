@@ -9,10 +9,10 @@
                 Text="Login"
                 Margin="0, 12"/>
             <Label 
-                Text="Username" />
+                Text="Username:" />
             <Entry />
             <Label 
-                Text="Password" />
+                Text="Password:" />
             <Entry 
                 IsPassword="True" />
             <Switch />

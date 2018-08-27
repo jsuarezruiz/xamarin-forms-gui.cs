@@ -9,9 +9,9 @@ This project is a small Xamarin.Forms backend of gui.cs. Yes, create **console**
 ## Status
 
 It is a project in progress where there is currently implementation of:
+* Alert
 * Basic Layouts
 * Button
-* Checkb
 * Label
 * ProgressBar
 * Switch
@@ -56,7 +56,7 @@ public class App : Xamarin.Forms.Application
 
 ```
 
-And MainPage is a just a Xamarin.Forms ContentPage:
+And MainPage is a just a Xamarin.Forms **XAML** ContentPage:
 
 ```
 <StackLayout>
@@ -74,6 +74,46 @@ And MainPage is a just a Xamarin.Forms ContentPage:
     <Button
         Text="Login"/>
 </StackLayout>
+
+```
+
+As in any Xamarin.Forms App, you can create the entire UI in **C# **code.
+
+```
+public MainPageCS()
+{
+    var panel = new StackLayout();
+
+    var userNameLabel = new Xamarin.Forms.Label
+    {
+        Text = "Username:"
+    };
+    panel.Children.Add(userNameLabel);
+
+    var userNameEntry = new Entry();
+    panel.Children.Add(userNameEntry);
+
+
+    var passwordLabel = new Xamarin.Forms.Label
+    {
+        Text = "Password:"
+    };
+    panel.Children.Add(passwordLabel);
+
+    var passwordEntry = new Entry
+    {
+        IsPassword = true
+    };
+    panel.Children.Add(passwordEntry);
+
+    var loginButton = new Xamarin.Forms.Button
+    {
+        Text = "Login"
+    };
+    panel.Children.Add(loginButton);
+
+    Content = panel;
+}
 
 ```
 ## Contributing
