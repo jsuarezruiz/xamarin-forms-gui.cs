@@ -77,7 +77,7 @@ And MainPage is a just a Xamarin.Forms **XAML** ContentPage:
 
 ```
 
-As in any Xamarin.Forms App, you can create the entire UI in **C# **code.
+As in any Xamarin.Forms App, you can create the entire UI in **C#** code.
 
 ```
 public MainPageCS()
