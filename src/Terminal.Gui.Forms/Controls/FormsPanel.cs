@@ -6,9 +6,11 @@ namespace Terminal.Gui.Forms.Controls
 {
     public class FormsPanel : View
     {
+        const int SizeConverter = 6;
+
         public FormsPanel() : base()
         {
-            LayoutStyle = LayoutStyle.Computed;
+          
         }
 
         public FormsPanel(Rect rect) : base(rect)
@@ -16,9 +18,9 @@ namespace Terminal.Gui.Forms.Controls
 
         }
 
-        IElementController ElementController => Element as IElementController;
+        IElementController ElementController => Layout as IElementController;
 
-        public Layout Element { get; set; }
+        public Layout Layout { get; set; }
 
         public override void LayoutSubviews()
         {
@@ -29,9 +31,7 @@ namespace Terminal.Gui.Forms.Controls
 
         public void ArrangeSubviews()
         {
-            int temp = 0;   // TODO: Review Layout!
-
-            Element.IsInNativeLayout = true;
+            Layout.IsInNativeLayout = true;
 
             for (var i = 0; i < ElementController.LogicalChildren.Count; i++)
             {
@@ -48,30 +48,34 @@ namespace Terminal.Gui.Forms.Controls
                 }
 
                 Rectangle bounds = child.Bounds;
+                View nativeView = renderer.GetNativeElement();
 
                 // Set child size
-                var height = Convert.ToInt32(Math.Max(0, bounds.Height));
+                var height = Convert.ToInt32(Math.Max(0, bounds.Height / SizeConverter));
 
-                if (height > 0)
+                if (height <= 0)
                 {
-                    renderer.GetNativeElement().Height = Dim.Sized(height);
+                    height = 1;
                 }
 
-                var width = Convert.ToInt32(Math.Max(0, bounds.Width));
+                nativeView.Height = Dim.Sized(height);
+                
 
-                if (width > 0)
+                var width = Convert.ToInt32(Math.Max(0, bounds.Width / SizeConverter));
+  
+                if (width <= 0)
                 {
-                    renderer.GetNativeElement().Width = Dim.Sized(width);
+                    width = 1;
                 }
 
+                nativeView.Width = Dim.Sized(width);
+          
                 // Set child position
-                renderer.GetNativeElement().X = Convert.ToInt32(bounds.X);
-                renderer.GetNativeElement().Y = Convert.ToInt32(bounds.Y + temp);
-
-                temp++;
+                nativeView.X = Pos.At(Convert.ToInt32(bounds.X / SizeConverter));
+                nativeView.Y = Pos.At(Convert.ToInt32(bounds.Y / SizeConverter));
             }
 
-            Element.IsInNativeLayout = false;
+            Layout.IsInNativeLayout = false;
         }
     }
 }

@@ -100,12 +100,10 @@ namespace Terminal.Gui.Forms
             OnUpdated();
         }
 
-
         void HandleRedrawNeeded(object sender, System.EventArgs e)
         {
             UpdateNativeControl();
         }
-
 
         void MaybeInvalidate()
         {

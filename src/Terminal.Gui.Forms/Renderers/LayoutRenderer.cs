@@ -20,7 +20,7 @@ namespace Terminal.Gui.Forms.Renderers
                 {
                     var formsPanel = new FormsPanel
                     {
-                        Element = Element
+                        Layout = Element
                     };
 
                     SetNativeControl(formsPanel);
@@ -101,7 +101,7 @@ namespace Terminal.Gui.Forms.Renderers
         {
             if (Element.IsClippedToBounds)
             {
-                Control.Frame = new Rect(0, 0, Convert.ToInt32(Control.Element.Bounds.Width), Convert.ToInt32(Control.Element.Bounds.Height));
+                Control.Frame = new Rect(0, 0, Convert.ToInt32(Control.Layout.Bounds.Width), Convert.ToInt32(Control.Layout.Bounds.Height));
             }
         }
     }

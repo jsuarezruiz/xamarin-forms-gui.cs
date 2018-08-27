@@ -14,10 +14,11 @@ namespace Terminal.Gui.Forms.Renderers
 
         event EventHandler<VisualElementChangedEventArgs> ElementChanged;
 
+        void SetElementSize(Size size);
+
         SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint);
 
         void SetElement(VisualElement element);
-
     }
 
     public class ViewRenderer<TElement, TNativeElement> : IVisualElementRenderer
@@ -78,6 +79,11 @@ namespace Terminal.Gui.Forms.Renderers
         public virtual SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
         {
             return new SizeRequest();
+        }
+
+        public void SetElementSize(Size size)
+        {
+            Layout.LayoutChildIntoBoundingRegion(Element, new Rectangle(Element.X, Element.Y, size.Width, size.Height));
         }
 
         public void SetElement(VisualElement element)

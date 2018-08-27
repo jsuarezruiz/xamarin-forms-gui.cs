@@ -182,6 +182,7 @@ namespace Terminal.Gui.Forms
                 SetRenderer(view, viewRenderer);
 
                 _renderer.Add(viewRenderer.GetNativeElement());
+                viewRenderer.SetElementSize(new Size(640, 480));
             }
             else
                 System.Diagnostics.Debug.WriteLine("Potential view double add");

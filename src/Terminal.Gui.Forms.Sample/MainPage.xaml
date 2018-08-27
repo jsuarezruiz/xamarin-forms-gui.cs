@@ -5,15 +5,19 @@
              Title="Xamarin.Forms Console Backend">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Login" />
-            <Label Text="Username" />
+            <Label 
+                Text="Login" />
+            <Label 
+                Text="Username" />
             <Entry />
-            <Label Text="Password" />
-            <Entry IsPassword="True" />
-            <StackLayout Orientation="Horizontal">
-                <Switch />
-            </StackLayout>
-            <Button x:Name="LoginBtn" Text="Login"/>
+            <Label 
+                Text="Password" />
+            <Entry 
+                IsPassword="True" />
+            <Switch />
+            <Button
+                x:Name="LoginBtn" 
+                Text="Login"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
