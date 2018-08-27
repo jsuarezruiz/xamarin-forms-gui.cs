@@ -6,7 +6,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Label 
-                Text="Login" />
+                Text="Login"
+                Margin="0, 12"/>
             <Label 
                 Text="Username" />
             <Entry />
