@@ -17,11 +17,14 @@ It is a project in progress where there is currently implementation of:
 * Switch
 
 Remain pending:
+* Editor
 * HexView
 * Frame
 * ListView
 * Menu
 * ScrollView
+
+![](images/forms-gui-live.gif)
 
 ## Example App
 
