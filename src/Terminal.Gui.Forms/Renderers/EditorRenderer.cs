@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Terminal.Gui.Forms.Renderers
 {
-    public class EntryRenderer : ViewRenderer<Entry, TextField>
+    public class EditorRenderer : ViewRenderer<Editor, TextView>
     {
-        protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
+        protected override void OnElementChanged(ElementChangedEventArgs<Editor> e)
         {
             base.OnElementChanged(e);
 
@@ -14,8 +14,7 @@ namespace Terminal.Gui.Forms.Renderers
             {
                 if (Control == null)
                 {
-                    SetNativeControl(new TextField(string.Empty));
-                    Control.Changed += OnTextChanged;
+                    SetNativeControl(new TextView());
                 }
 
                 UpdateText();
@@ -26,7 +25,7 @@ namespace Terminal.Gui.Forms.Renderers
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == Entry.TextProperty.PropertyName)
+            if (e.PropertyName == Editor.TextProperty.PropertyName)
             {
                 UpdateText();
             }
@@ -35,11 +34,6 @@ namespace Terminal.Gui.Forms.Renderers
         void UpdateText()
         {
             Control.Text = Element.Text ?? string.Empty;
-        }
-
-        void OnTextChanged(object sender, System.EventArgs e)
-        {
-            ((IElementController)Element).SetValueFromRenderer(Entry.TextProperty, Control.Text.ToString());
         }
     }
 }

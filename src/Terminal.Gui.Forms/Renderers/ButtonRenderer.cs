@@ -36,6 +36,11 @@ namespace Terminal.Gui.Forms.Renderers
         {
             var newText = Element.Text;
 
+            if(newText == null)
+            {
+                return;
+            }
+
             if (Control.Text != newText)
             {
                 Control.Text = Element.Text;
