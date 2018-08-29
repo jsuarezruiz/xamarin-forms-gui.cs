@@ -16,8 +16,10 @@ It is a project in progress where there is currently implementation of:
 * ProgressBar
 * Switch
 
-Remain pending:
+In progress:
 * Editor
+  
+Remain pending:
 * HexView
 * Frame
 * ListView
