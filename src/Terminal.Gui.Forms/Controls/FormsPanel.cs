@@ -71,8 +71,11 @@ namespace Terminal.Gui.Forms.Controls
                 nativeView.Width = Dim.Sized(width);
           
                 // Set child position
-                nativeView.X = Pos.At(Convert.ToInt32(bounds.X / SizeConverter));
-                nativeView.Y = Pos.At(Convert.ToInt32(bounds.Y / SizeConverter));
+                int x = Convert.ToInt32(bounds.X / SizeConverter); 
+                int y = Convert.ToInt32(bounds.Y / SizeConverter); 
+
+                nativeView.X = Pos.At(x);
+                nativeView.Y = Pos.At(y);
             }
 
             Layout.IsInNativeLayout = false;

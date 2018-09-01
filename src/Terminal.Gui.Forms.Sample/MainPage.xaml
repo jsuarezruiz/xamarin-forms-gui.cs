@@ -4,21 +4,49 @@
              x:Class="Terminal.Gui.Forms.Sample.MainPage"
              Title="Xamarin.Forms Console Backend">
     <ContentPage.Content>
-        <StackLayout>
-            <Label 
-                Text="Login"
-                Margin="0, 12"/>
-            <Label 
-                Text="Username:" />
-            <Entry />
-            <Label 
-                Text="Password:" />
-            <Entry 
-                IsPassword="True" />
-            <Switch />
-            <Button
-                x:Name="LoginBtn" 
-                Text="Login"/>
-        </StackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackLayout>
+                <Label 
+                    Text="Login"
+                    Margin="0, 0, 0, 6"/>
+                <Label 
+                    Text="Username:" />
+                <Entry />
+                <Label 
+                    Text="Password:" />
+                <Entry 
+                    IsPassword="True" />
+                <Switch />
+                <Button
+                    x:Name="LoginBtn" 
+                    Text="Login"/>
+            </StackLayout>
+            <Grid 
+                Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label 
+                    Grid.Row="0"
+                    Text="ListView"
+                    Margin="0, 0, 0, 6"/>
+                <ListView
+                    Grid.Row="1">
+                    <ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>mono</x:String>
+                            <x:String>monodroid</x:String>
+                            <x:String>monotouch</x:String>
+                            <x:String>monodevelop</x:String>
+                        </x:Array>
+                    </ListView.ItemsSource>
+                </ListView>
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

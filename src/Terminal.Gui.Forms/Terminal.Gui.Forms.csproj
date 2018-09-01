@@ -66,6 +66,7 @@
     <Compile Include="EventArgs\VisualElementChangedEventArgs.cs" />
     <Compile Include="EventTracker.cs" />
     <Compile Include="Exports.cs" />
+    <Compile Include="Extensions\VisualElementExtensions.cs" />
     <Compile Include="Forms.cs" />
     <Compile Include="FormsWindow.cs" />
     <Compile Include="GuiDeviceInfo.cs" />
