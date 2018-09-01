@@ -13,18 +13,18 @@ It is a project in progress where there is currently implementation of:
 * Basic Layouts
 * Button
 * Label
+* ListView
 * ProgressBar
 * Switch
 
 In progress:
+* Frame
 * Editor
+* ScrollView
   
 Remain pending:
 * HexView
-* Frame
-* ListView
 * Menu
-* ScrollView
 
 ![](images/forms-gui-live.gif)
 
