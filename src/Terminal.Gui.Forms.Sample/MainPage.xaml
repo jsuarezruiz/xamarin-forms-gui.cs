@@ -8,16 +8,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <StackLayout>
                 <Label 
                     Text="Login"
+                    TextColor="White"
                     Margin="0, 0, 0, 6"/>
                 <Label 
-                    Text="Username:" />
+                    Text="Username:"
+                    TextColor="White"/>
                 <Entry />
                 <Label 
-                    Text="Password:" />
+                    Text="Password:"
+                    TextColor="White"/>
                 <Entry 
                     IsPassword="True" />
                 <Switch />
@@ -34,6 +38,7 @@
                 <Label 
                     Grid.Row="0"
                     Text="ListView"
+                    TextColor="White"
                     Margin="0, 0, 0, 6"/>
                 <ListView
                     Grid.Row="1">
@@ -47,6 +52,31 @@
                     </ListView.ItemsSource>
                 </ListView>
             </Grid>
+            <StackLayout
+                Grid.Column="2">
+                <Label 
+                    Text="Colors"
+                    TextColor="White"
+                    Margin="0, 0, 0, 6"/>
+                <Label 
+                    Text="Black"
+                    TextColor="Black"/>
+                <Label 
+                    Text="Green"
+                    TextColor="Green"/>
+                <Label 
+                    Text="Magenta"
+                    TextColor="Magenta"/>
+                <Label 
+                    Text="Red"
+                    TextColor="Red"/>
+                <Label 
+                    Text="Yellow"
+                    TextColor="Yellow"/>
+                <Label 
+                    Text="White"
+                    TextColor="White"/>
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

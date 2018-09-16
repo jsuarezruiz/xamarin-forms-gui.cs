@@ -1,5 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using Terminal.Gui.Forms.EventArgs;
+using Terminal.Gui.Forms.Extensions;
+using Terminal.Gui.Forms.Helpers;
 
 namespace Terminal.Gui.Forms.Renderers
 {
@@ -17,6 +20,7 @@ namespace Terminal.Gui.Forms.Renderers
                 }
 
                 UpdateText();
+                UpdateTextColor();
             }
         }
 
@@ -25,9 +29,9 @@ namespace Terminal.Gui.Forms.Renderers
             base.OnElementPropertyChanged(sender, e);
 
             if (e.PropertyName == Xamarin.Forms.Label.TextProperty.PropertyName)
-            {
                 UpdateText();
-            }
+            else if (e.PropertyName == Xamarin.Forms.Label.TextColorProperty.PropertyName)
+                UpdateTextColor();
         }
 
         void UpdateText()
@@ -43,6 +47,14 @@ namespace Terminal.Gui.Forms.Renderers
             {
                 Control.Text = Element.Text;
             }
+        }
+        void UpdateTextColor()
+        {
+            var textColor = Element.TextColor != Xamarin.Forms.Color.Default ? Element.TextColor : Xamarin.Forms.Color.Black;
+
+            var consoleColor = textColor.ToConsoleColor();
+
+            Control.TextColor = AttributeHelper.MakeColor(consoleColor, ConsoleColor.Blue); 
         }
     }
 }
