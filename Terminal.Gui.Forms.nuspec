@@ -7,7 +7,7 @@
        <authors>Javier Suárez Ruiz</authors>
        <owners>Javier Suárez Ruiz</owners>
        <projectUrl>https://github.com/jsuarezruiz/xamarin-forms-gui.cs</projectUrl>
-       <iconUrl>https://raw.githubusercontent.com/jsuarezruiz/xamarin-forms-gui.cs/master/images/logo.64x64.png</iconUrl>
+       <iconUrl>https://raw.githubusercontent.com/jsuarezruiz/xamarin-forms-gui.cs/master/images/Logo.png</iconUrl>
        <requireLicenseAcceptance>false</requireLicenseAcceptance>
        <description>
          Console-based user interface toolkit for .NET applications using Xamarin.Forms
