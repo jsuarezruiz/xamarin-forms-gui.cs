@@ -7,7 +7,7 @@ using Xamarin.Forms.Internals;
 
 namespace Terminal.Gui.Forms
 {
-    class Platform : BindableObject, IPlatform, INavigation, IDisposable
+    class Platform : BindableObject, INavigation, IDisposable
     {
         bool _disposed;
 
@@ -48,7 +48,7 @@ namespace Terminal.Gui.Forms
 
             if (options.Message == null || options.Title == null)
             {
-                MessageBox.Query(48, 6, string.Empty, content, new string[] { options.Cancel } );
+                MessageBox.Query(48, 6, string.Empty, content, new string[] { options.Cancel });
             }
             else
             {
@@ -133,7 +133,6 @@ namespace Terminal.Gui.Forms
 
             Page = newRoot;
 
-            Page.Platform = this;
             AddChild(Page);
 
             Page.DescendantRemoved += HandleChildRemoved;

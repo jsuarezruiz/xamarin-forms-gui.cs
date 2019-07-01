@@ -47,6 +47,15 @@ namespace Terminal.Gui.Forms
             }
         }
 
+        public SizeRequest GetNativeSize(VisualElement view, double widthConstraint, double heightConstraint)
+        {
+            return new SizeRequest()
+            {
+                Minimum = new Xamarin.Forms.Size(view.MinimumWidthRequest, view.MinimumHeightRequest),
+                Request = new Xamarin.Forms.Size(view.WidthRequest, view.HeightRequest),
+            };
+        }
+
         public Task<Stream> GetStreamAsync(Uri uri, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
@@ -65,7 +74,7 @@ namespace Terminal.Gui.Forms
         public void StartTimer(TimeSpan interval, Func<bool> callback)
         {
             Timer timer = null;
-            timer = new Timer((_ => 
+            timer = new Timer((_ =>
             {
                 if (!callback())
                 {
@@ -95,7 +104,8 @@ namespace Terminal.Gui.Forms
                     return;
                 var interval = TimeSpan.FromSeconds(1.0);
 
-                timer = new Timer((_ => {
+                timer = new Timer((_ =>
+                {
                     this.SendSignals();
                 }), null, (int)interval.TotalMilliseconds, (int)interval.TotalMilliseconds);
             }
