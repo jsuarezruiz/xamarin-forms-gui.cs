@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Net.Http;
 using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -14,6 +18,8 @@ namespace Terminal.Gui.Forms
 
         public string RuntimePlatform => "Gui";
 
+        public OSAppTheme RequestedTheme => OSAppTheme.Unspecified;
+
         public void BeginInvokeOnMainThread(Action action)
         {
             Task.Run(action);
@@ -26,7 +32,9 @@ namespace Terminal.Gui.Forms
 
         public string GetMD5Hash(string input)
         {
-            throw new NotImplementedException();
+            var bytes = Encoding.UTF8.GetBytes(input);
+            var hash = MD5.Create().ComputeHash(bytes);
+            return Convert.ToBase64String(hash);
         }
 
         public double GetNamedSize(NamedSize size, Type targetElementType, bool useOldSizes)
@@ -49,7 +57,7 @@ namespace Terminal.Gui.Forms
 
         public Task<Stream> GetStreamAsync(Uri uri, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            return new HttpClient().GetStreamAsync(uri.ToString());
         }
 
         public IIsolatedStorageFile GetUserStoreForApplication()
@@ -59,13 +67,13 @@ namespace Terminal.Gui.Forms
 
         public void OpenUriAction(Uri uri)
         {
-            throw new NotImplementedException();
+            Process.Start(uri.ToString());
         }
 
         public void StartTimer(TimeSpan interval, Func<bool> callback)
         {
             Timer timer = null;
-            timer = new Timer((_ => 
+            timer = new Timer((_ =>
             {
                 if (!callback())
                 {
@@ -95,7 +103,8 @@ namespace Terminal.Gui.Forms
                     return;
                 var interval = TimeSpan.FromSeconds(1.0);
 
-                timer = new Timer((_ => {
+                timer = new Timer((_ =>
+                {
                     this.SendSignals();
                 }), null, (int)interval.TotalMilliseconds, (int)interval.TotalMilliseconds);
             }
@@ -103,6 +112,17 @@ namespace Terminal.Gui.Forms
 
         public void QuitApplication()
         {
+        }
+
+        public Xamarin.Forms.Color GetNamedColor(String name)
+        {
+            Enum.TryParse<Xamarin.Forms.Color>(name, out var color);
+            return color;
+        }
+
+        public SizeRequest GetNativeSize(VisualElement view, Double widthConstraint, Double heightConstraint)
+        {
+            return new SizeRequest();
         }
     }
 }
