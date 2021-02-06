@@ -48,13 +48,17 @@ namespace Terminal.Gui.Forms.Renderers
                 Control.Text = Element.Text;
             }
         }
+
         void UpdateTextColor()
         {
             var textColor = Element.TextColor != Xamarin.Forms.Color.Default ? Element.TextColor : Xamarin.Forms.Color.Black;
 
             var consoleColor = textColor.ToConsoleColor();
 
-            Control.TextColor = AttributeHelper.MakeColor(consoleColor, ConsoleColor.Blue); 
+            Control.ColorScheme = new ColorScheme()
+            {
+                Normal = AttributeHelper.MakeColor(consoleColor, ConsoleColor.Blue)
+            };
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NStack;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Terminal.Gui.Forms.Renderers;
@@ -7,7 +8,7 @@ using Xamarin.Forms.Internals;
 
 namespace Terminal.Gui.Forms
 {
-    class Platform : BindableObject, IPlatform, INavigation, IDisposable
+    class Platform : BindableObject, INavigation, IDisposable
     {
         bool _disposed;
 
@@ -48,15 +49,15 @@ namespace Terminal.Gui.Forms
 
             if (options.Message == null || options.Title == null)
             {
-                MessageBox.Query(48, 6, string.Empty, content, new string[] { options.Cancel } );
+                MessageBox.Query(48, 6, string.Empty, content, new ustring[] { options.Cancel } );
             }
             else
             {
-                var buttons = new string[] { options.Cancel };
+                var buttons = new ustring[] { options.Cancel };
 
                 if (!string.IsNullOrEmpty(options.Accept))
                 {
-                    buttons = new string[] { options.Accept, options.Cancel };
+                    buttons = new ustring[] { options.Accept, options.Cancel };
                 }
 
                 MessageBox.Query(48, 6, options.Title, content, buttons);
@@ -133,7 +134,6 @@ namespace Terminal.Gui.Forms
 
             Page = newRoot;
 
-            Page.Platform = this;
             AddChild(Page);
 
             Page.DescendantRemoved += HandleChildRemoved;

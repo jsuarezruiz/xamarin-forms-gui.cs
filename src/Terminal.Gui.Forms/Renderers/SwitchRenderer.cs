@@ -37,7 +37,7 @@ namespace Terminal.Gui.Forms.Renderers
             Control.Checked = Element.IsToggled;
         }
 
-        private void OnNativeToggled(object sender, System.EventArgs e)
+        private void OnNativeToggled(bool e)
         {
             ((IElementController)Element).SetValueFromRenderer(Switch.IsToggledProperty, Control.Checked);
         }
