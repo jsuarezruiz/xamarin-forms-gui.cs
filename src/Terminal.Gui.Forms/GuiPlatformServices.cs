@@ -37,6 +37,11 @@ namespace Terminal.Gui.Forms
             return Convert.ToBase64String(hash);
         }
 
+        public string GetHash(string input)
+        {
+            return GetMD5Hash(input);
+        }
+
         public double GetNamedSize(NamedSize size, Type targetElementType, bool useOldSizes)
         {
             switch (size)

@@ -24,6 +24,9 @@
                     TextColor="White"/>
                 <Entry 
                     IsPassword="True" />
+                <Label
+                        Text="Remember me:"
+                        TextColor="White" />
                 <Switch />
                 <Button
                     x:Name="LoginBtn" 
