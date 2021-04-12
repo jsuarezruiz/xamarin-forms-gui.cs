@@ -124,5 +124,10 @@ namespace Terminal.Gui.Forms
         {
             return new SizeRequest();
         }
+
+        public string GetHash(string input)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -20,6 +20,6 @@
         <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
         <PackageReference Include="System.ValueTuple" Version="4.5.0" />
         <PackageReference Include="Terminal.Gui" Version="0.16.0" />
-        <PackageReference Include="Xamarin.Forms" Version="4.6.0.847" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     </ItemGroup>
 </Project>
