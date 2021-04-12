@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2000
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal.Gui.Forms", "Terminal.Gui.Forms\Terminal.Gui.Forms.csproj", "{A0FE3EFE-9610-4470-BA8A-218FAB3680A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminal.Gui.Forms", "Terminal.Gui.Forms\Terminal.Gui.Forms.csproj", "{A0FE3EFE-9610-4470-BA8A-218FAB3680A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Terminal.Gui.Forms.Sample", "Terminal.Gui.Forms.Sample\Terminal.Gui.Forms.Sample.csproj", "{001DDB75-EEBF-4CBF-A5E8-BB8631829D9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Terminal.Gui.Forms.Sample", "Terminal.Gui.Forms.Sample\Terminal.Gui.Forms.Sample.csproj", "{001DDB75-EEBF-4CBF-A5E8-BB8631829D9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

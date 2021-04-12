@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Terminal.Gui.Forms.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Internals;
+using NStack;
 
 namespace Terminal.Gui.Forms
 {
@@ -48,15 +49,15 @@ namespace Terminal.Gui.Forms
 
             if (options.Message == null || options.Title == null)
             {
-                MessageBox.Query(48, 6, string.Empty, content, new string[] { options.Cancel } );
+                MessageBox.Query(48, 6, string.Empty, content, new ustring[] { options.Cancel } );
             }
             else
             {
-                var buttons = new string[] { options.Cancel };
+                var buttons = new ustring[] { options.Cancel };
 
                 if (!string.IsNullOrEmpty(options.Accept))
                 {
-                    buttons = new string[] { options.Accept, options.Cancel };
+                    buttons = new ustring[] { options.Accept, options.Cancel };
                 }
 
                 MessageBox.Query(48, 6, options.Title, content, buttons);

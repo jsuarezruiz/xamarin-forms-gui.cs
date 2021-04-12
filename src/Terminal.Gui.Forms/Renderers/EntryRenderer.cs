@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using Terminal.Gui.Forms.EventArgs;
 using Xamarin.Forms;
+using NStack;
 
 namespace Terminal.Gui.Forms.Renderers
 {
@@ -15,7 +16,7 @@ namespace Terminal.Gui.Forms.Renderers
                 if (Control == null)
                 {
                     SetNativeControl(new TextField(string.Empty));
-                    Control.Changed += OnTextChanged;
+                    Control.TextChanged += OnTextChanged;
                 }
 
                 UpdateText();
@@ -37,7 +38,7 @@ namespace Terminal.Gui.Forms.Renderers
             Control.Text = Element.Text ?? string.Empty;
         }
 
-        void OnTextChanged(object sender, System.EventArgs e)
+        void OnTextChanged(ustring text)
         {
             ((IElementController)Element).SetValueFromRenderer(Entry.TextProperty, Control.Text.ToString());
         }
